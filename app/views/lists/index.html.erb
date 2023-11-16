@@ -1,1 +1,39 @@
-<h1>My List</h1>
+<div class="banner">
+  <div class="container-fluid" style="background-image:url(https://images.unsplash.com/photo-1514306191717-452ec28c7814); height: 400px; obejct-fit:cover;">
+    <div class="text-wrapper d-flex align-items-center justify-content-center text-white h-100">
+    <div class="col">
+      <div class="row text-center">
+        <h2 class="">Save any kind of movies</h2>
+      </div>
+      <div class="row text-center">
+        <h3>Classics</h3>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="col">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h3>My List</h3>
+        <a class="btn btn-success p-2" href="/lists/new">Create a movie list</a>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <% @lists.each do |list| %>
+        <div class="col-md-4 mb-4">
+          <a href="/lists/<%= list.id %>">
+            <div class="card text-white" >
+              <img src="https://source.unsplash.com/random/500x300?movie&<%= list.id %>" class="card-img" alt="movie-image">
+              <div class="card-img-overlay d-flex justify-content-center align-items-center" style="background: rgba(0, 0, 0, 0.6);">
+                <h2 class="card-title"><%= list.name %></h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
