@@ -25,7 +25,8 @@
         <div class="col-md-4 mb-4">
           <a href="/lists/<%= list.id %>">
             <div class="card text-white" >
-              <img src="https://source.unsplash.com/random/500x300?movie&<%= list.id %>" class="card-img" alt="movie-image">
+              <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill, class: "card-img"%>
+
               <div class="card-img-overlay d-flex justify-content-center align-items-center background-overlay">
                 <h2 class="card-title"><%= list.name %></h2>
               </div>

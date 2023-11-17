@@ -29,6 +29,9 @@ gem "jbuilder"
 # Adding dotenv-rails for env management
 gem "dotenv-rails"
 
+# Adding "cloudinary" for image storage
+gem "cloudinary"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
