@@ -1,6 +1,6 @@
 <div class="banner">
-  <div class="container-fluid p-0" style="background-image:url(https://source.unsplash.com/random/1600x400?Banner); height: 400px; background-size:cover;">
-    <div class="text-wrapper d-flex align-items-center justify-content-center text-white h-100" style="background: rgba(0, 0, 0, 0.6);>
+  <div class="container-fluid p-0 banner-container">
+    <div class="text-wrapper d-flex align-items-center justify-content-center text-white h-100 background-overlay">
     <div class="col">
       <div class="row text-center">
         <h2 class=""><%= @list.name %></h2>
@@ -21,12 +21,17 @@
      <% @list.bookmarks.each do |bookmark| %>
         <div class="col-md-4 mb-4">
           <div class="card h-100">
-            <img src="<%= bookmark.movie.poster_url%>" class="card-img-top" alt="house" style="object-fit:cover;">
-            <div class="card-body">
-              <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <img src="<%= bookmark.movie.poster_url%>" class="card-img-top" alt="house">
+            <div class="card-body h-75">
+              <div class="card-body--title d-flex justify-content-between">
+                <h5 class="card-title"><%= bookmark.movie.title %></h5><h5>⭐️ <%= bookmark.movie.rating.round(1) %></h5>
+              </div>
               <p class="card-text"><%= bookmark.movie.overview %></p>
             </div>
-            <%= link_to "Delete", bookmark_path(bookmark) ,data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "ms-3 text-danger" %>
+            <div class="card-footer d-flex justify-content-between align-items-center border-0">
+              <div class="card-comment text-bold "><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></div>
+              <%= link_to "Delete", bookmark_path(bookmark) ,data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "ms-3 text-danger" %>
+            </div>
           </div>
         </div>
       <% end %>
